@@ -25,8 +25,10 @@ import 'modules/colors_picker.dart'; // import this
 
 TextEditingController heightcontroler = TextEditingController();
 TextEditingController widthcontroler = TextEditingController();
+
 var width = 300;
-var height = 300;
+  var height = 300;
+
 List<Map> widgetJson = [];
 //List fontsize = [];
 //List<Color> colorList = [];
@@ -83,6 +85,7 @@ class _ImageEditorProAnderState extends State<ImageEditorProAnder> {
   File _image;
   ScreenshotController screenshotController = ScreenshotController();
   Timer timeprediction;
+  
   void timers() {
     Timer.periodic(Duration(milliseconds: 10), (tim) {
       setState(() {});
@@ -121,6 +124,13 @@ class _ImageEditorProAnderState extends State<ImageEditorProAnder> {
     super.initState();
   }
 
+  Future<void> updateSize() async {
+    var imageMeta = await decodeImageFromList(widget.file.readAsBytesSync());
+    return {'height': '${imageMeta.height}', 'width': '${imageMeta.width}'};
+    width = imageMeta.width;
+    height = imageMeta.height;
+  }
+
   double flipValue = 0;
   int rotateValue = 0;
   double blurValue = 0;
@@ -132,6 +142,7 @@ class _ImageEditorProAnderState extends State<ImageEditorProAnder> {
   double saturationValue = 0;
   @override
   Widget build(BuildContext context) {
+    updateSize();
     return Screenshot(
       controller: screenshotController,
       child: RotatedBox(
