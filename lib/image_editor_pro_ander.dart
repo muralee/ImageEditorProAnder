@@ -262,57 +262,9 @@ class _ImageEditorProAnderState extends State<ImageEditorProAnder> {
         key: scaf,
         appBar: AppBar(
           actions: <Widget>[
-            Icon(FontAwesomeIcons.boxes).xIconButton(onPressed: () {
-              showCupertinoDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: 'Select Height Width'.text(),
-                      actions: <Widget>[
-                        () {
-                          setState(() {
-                            height = int.parse(heightcontroler.text);
-                            width = int.parse(widthcontroler.text);
-                          });
-                          heightcontroler.clear();
-                          widthcontroler.clear();
-                          Navigator.pop(context);
-                        }.xFlatButton(child: 'Done'.text()),
-                      ],
-                      content: SingleChildScrollView(
-                        child: xColumnSS.list(
-                          [
-                            'Define Height'.text(),
-                            10.0.sizedHeight(),
-                            TextField(
-                                controller: heightcontroler,
-                                keyboardType: TextInputType.numberWithOptions(),
-                                decoration: InputDecoration(
-                                    hintText: 'Height',
-                                    contentPadding: EdgeInsets.only(left: 10),
-                                    border: OutlineInputBorder())),
-                            10.0.sizedHeight(),
-                            'Define Width'.text(),
-                            10.0.sizedHeight(),
-                            TextField(
-                                controller: widthcontroler,
-                                keyboardType: TextInputType.numberWithOptions(),
-                                decoration: InputDecoration(
-                                    hintText: 'Width',
-                                    contentPadding: EdgeInsets.only(left: 10),
-                                    border: OutlineInputBorder())),
-                          ],
-                        ),
-                      ),
-                    );
-                  });
-            }),
             Icon(Icons.clear).xIconButton(onPressed: () {
               _controller.points.clear();
               setState(() {});
-            }),
-            Icon(Icons.camera_alt).xIconButton(onPressed: () {
-              bottomsheets();
             }),
             'Save'.text().xFlatButton(
                 primary: Colors.white,
