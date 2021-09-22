@@ -90,14 +90,17 @@ class _ImageEditorProAnderState extends State<ImageEditorProAnder> {
     Timer.periodic(Duration(milliseconds: 10), (tim) {
       setState(() {});
       timeprediction = tim;
-      //_image=widget.file;
-
-      setState(() {
-        // _image=widget.file;
-        if (widget.file != null) {
-          _image = widget.file;
+      
+       if (widget.file != null) {
+          decodeImageFromList(widget.file.readAsBytesSync()).then((img) {
+            setState(() {
+              height = img.height;
+              width = img.width;
+              _image = widget.file;
+            });
+          });
         }
-      });
+      
     });
   }
 
