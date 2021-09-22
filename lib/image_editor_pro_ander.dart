@@ -127,13 +127,6 @@ class _ImageEditorProAnderState extends State<ImageEditorProAnder> {
     super.initState();
   }
 
-  Future<void> updateSize() async {
-    var imageMeta = await decodeImageFromList(widget.file.readAsBytesSync());
-    return {'height': '${imageMeta.height}', 'width': '${imageMeta.width}'};
-    width = imageMeta.width;
-    height = imageMeta.height;
-  }
-
   double flipValue = 0;
   int rotateValue = 0;
   double blurValue = 0;
@@ -145,7 +138,6 @@ class _ImageEditorProAnderState extends State<ImageEditorProAnder> {
   double saturationValue = 0;
   @override
   Widget build(BuildContext context) {
-    updateSize();
     return Screenshot(
       controller: screenshotController,
       child: RotatedBox(
@@ -272,7 +264,6 @@ class _ImageEditorProAnderState extends State<ImageEditorProAnder> {
         ),
       ),
     ).xCenter().xScaffold(
-        backgroundColor: Colors.grey.shade400,
         key: scaf,
         appBar: AppBar(
           actions: <Widget>[
