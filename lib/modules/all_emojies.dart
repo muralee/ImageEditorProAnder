@@ -32,7 +32,7 @@ class _EmojiesState extends State<Emojies> {
                   Navigator.pop(context, {
                     'name': emoji,
                     'color': Colors.white,
-                    'size': 12.0,
+                    'size': 50.0,
                     'align': TextAlign.center
                   });
                 }));
