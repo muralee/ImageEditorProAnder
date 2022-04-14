@@ -10,6 +10,6 @@
 
 @implementation ImageEditorProAnderPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-  [SwiftImageEditorProPlugin registerWithRegistrar:registrar];
+  [SwiftImageEditorProAnderPlugin registerWithRegistrar:registrar];
 }
 @end

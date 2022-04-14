@@ -293,7 +293,8 @@ class _ImageEditorProAnderState extends State<ImageEditorProAnder> {
                   });
                 })
           ],
-          brightness: Brightness.dark,
+          //brightness: Brightness.dark,
+          systemOverlayStyle: SystemUiOverlayStyle.dark,
           // backgroundColor: Colors.red,
           backgroundColor: widget.appBarColor ?? Colors.black87,
         ),
